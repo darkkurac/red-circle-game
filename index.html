@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#192125">
+  <title>Красное кольцо</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="config.js"></script>
+  <script defer src="engine.js"></script>
+  <script defer src="game.js"></script>
+</head>
+<body>
+  <main id="game" class="game-frame" tabindex="0" aria-label="Гоночная игра">
+    <canvas id="scene" width="480" height="640" aria-label="Гоночная трасса"></canvas>
+    <div class="hud">
+      <div><span class="hud-label">КРУГ</span><strong><span id="lap">01</span><span class="hud-total"> / 05</span></strong></div>
+      <div class="score-block"><span class="hud-label">ОЧКИ</span><strong id="score">00000</strong></div>
+      <div class="health-block"><span class="hud-label">ЖИЗНИ</span><span id="lives" class="lives" aria-label="3 жизни">◆ ◆ ◆</span></div>
+    </div>
+    <div class="toolbar">
+      <button id="sound" class="icon-button" aria-label="Выключить звук" aria-pressed="true">♪</button>
+      <button id="pause" class="icon-button" aria-label="Пауза" disabled>Ⅱ</button>
+    </div>
+    <div id="notice" class="notice" aria-live="polite"></div>
+    <div class="bottom-hud"><div><span class="speed-label">СКОРОСТЬ</span><b id="speed">0</b><span class="speed-unit"> КМ/Ч</span></div><span id="drift-status"></span></div>
+    <div class="lap-track"><div id="progress"></div></div>
+    <div id="overlay" class="overlay">
+      <section id="start-panel" class="start-panel">
+        <button id="start" class="primary">Начать заезд <span aria-hidden="true">↗</span></button>
+      </section>
+      <section id="fact-panel" class="panel fact-panel" hidden>
+        <p id="fact-kicker" class="panel-kicker"></p>
+        <p id="fact-text" class="fact-text"></p>
+        <button id="next" class="primary">К результатам <span aria-hidden="true">→</span></button>
+      </section>
+      <section id="pause-panel" class="panel" hidden>
+        <h2 class="small-title">Пауза</h2>
+        <button id="resume" class="primary">Продолжить <span aria-hidden="true">→</span></button>
+      </section>
+      <section id="result-panel" class="panel result-panel" hidden>
+        <h2 id="result-title" class="small-title"></h2>
+        <div class="result-score"><span>ОЧКИ</span><strong id="result-score">0</strong></div>
+        <div class="result-stats"><span>Круги<b id="result-laps"></b></span><span>Обгоны<b id="result-passes"></b></span><span>Дрифты<b id="result-drifts"></b></span></div>
+        <p id="record" class="record"></p>
+        <button id="restart" class="primary">Ещё один заезд <span aria-hidden="true">↗</span></button>
+      </section>
+      <div id="countdown" class="countdown" hidden aria-live="assertive">3</div>
+    </div>
+    <div class="touch-controls"><button id="left" aria-label="Перестроиться влево">←</button><button id="right" aria-label="Перестроиться вправо">→</button></div>
+  </main>
+</body>
+</html>
